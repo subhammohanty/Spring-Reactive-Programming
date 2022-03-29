@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="reactor.core.publisher.Mono"/>
+    <fullyQualifiedTypeName name="com.reactive.springreactive.dto.ProductDto"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
+    <fullyQualifiedTypeName name="net.bytebuddy.NamingStrategy.SuffixingRandom.BaseNameResolver.ForGivenType"/>
+</qualifiedTypeNameHistroy>

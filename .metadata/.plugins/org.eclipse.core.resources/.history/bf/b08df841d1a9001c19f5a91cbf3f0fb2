@@ -1,0 +1,32 @@
+package com.demo.webFlux.springdemowebFlux.router;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.function.server.RouterFunction;
+import org.springframework.web.reactive.function.server.RouterFunctions;
+import org.springframework.web.reactive.function.server.ServerResponse;
+
+import com.demo.webFlux.springdemowebFlux.handler.CustomerHandler;
+import com.demo.webFlux.springdemowebFlux.handler.CustomerHandlerStream;
+
+@Configuration
+public class RouterConfiguration<CustomerHandlerStream> {
+	
+	@Autowired
+	private CustomerHandler handler;
+	
+	@Autowired
+	private CustomerHandlerStream streamHandler;
+	
+	@Bean
+	public RouterFunction<ServerResponse> routerFunction(){
+		return RouterFunctions.route()
+				.GET("/router/customers", handler::loadCustomers)
+				.GET("/router/customers/stream", streamHandler::loadCustomerByStream)
+				.GET("/router/customer/{input}" , handler::findCustomerById)
+				.POST("/router/customer" , handler::saveCustomer)
+				.build();
+	}
+
+}
